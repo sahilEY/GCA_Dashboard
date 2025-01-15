@@ -7,12 +7,15 @@ st.title("Requirement Fulfillment Dashboard")
 
 # File uploader
 #st.sidebar.header("Upload Excel File")
-uploaded_file =True# st.sidebar.file_uploader("Upload your Excel file", type=["xlsx", "xls"])
+uploaded_file =st.sidebar.file_uploader("Upload your Excel file", type=["xlsx", "xls"])
 print ("hi...")
 tab1, tab2 ,tab3= st.tabs(["Requirements", "Panelists","Skills Required"])
     # Display data preview
 # st.subheader("Uploaded Data Preview")
 # st.dataframe(df.head())
+if uploaded_file:
+    df = pd.read_excel(uploaded_file)
+    st.write(df.head())
 
 with tab1:
     # Load data\
